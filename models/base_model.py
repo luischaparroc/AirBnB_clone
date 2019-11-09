@@ -30,7 +30,8 @@ class BaseModel:
         """returns class name, id and attribute dictionary
         """
         class_name = "[" + self.__class__.__name__ + "]"
-        return class_name + " (" + self.id + ") " + str(self.__dict__)
+        dct = {k: v for (k, v) in self.__dict__.items() if (not v) is False}
+        return class_name + " (" + self.id + ") " + str(dct)
 
     def save(self):
         """updates last update time
@@ -48,7 +49,10 @@ class BaseModel:
             if key == "created_at" or key == "updated_at":
                 new_dict[key] = values.strftime("%Y-%m-%dT%H:%M:%S.%f")
             else:
-                new_dict[key] = values
+                if not values:
+                    pass
+                else:
+                    new_dict[key] = values
         new_dict['__class__'] = self.__class__.__name__
 
         return new_dict
