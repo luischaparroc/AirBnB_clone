@@ -4,6 +4,7 @@ Parent class that will inherit
 """
 import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -13,18 +14,17 @@ class BaseModel:
         """initializes all attributes
         """
         if not kwargs:
-            self.name = ""
-            self.my_number = 0
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            storage.new(self)
         else:
-            self.name = kwargs['name']
-            self.my_number = kwargs['my_number']
-            self.id = kwargs['id']
             f = "%Y-%m-%dT%H:%M:%S.%f"
-            self.created_at = datetime.strptime(kwargs['created_at'], f)
-            self.updated_at = datetime.strptime(kwargs['updated_at'], f)
+            for key, value in kwargs.items():
+                if key == 'created_at' or key == 'updated_at':
+                    value = datetime.strptime(kwargs[key], f)
+                if key != '__class__':
+                    setattr(self, key, value)
 
     def __str__(self):
         """returns class name, id and attribute dictionary
@@ -36,6 +36,7 @@ class BaseModel:
         """updates last update time
         """
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """creates a new dictionary, adding a key and returning
