@@ -10,12 +10,21 @@ from models.amenity import Amenity
 from models.state import State
 from models.review import Review
 from models import l_classes
+from models import l_cmds
 
 
 class HBNBCommand(cmd.Cmd):
     """Command processor"""
 
     prompt = "(hbnb) "
+
+    def precmd(self, arg):
+        if '.' in arg and '(' in arg and ')' in arg:
+            cls = arg.split('.')
+            comnd = cls[1].split('(')
+            if cls[0] in l_classes and comnd[0] in l_cmds:
+                arg = comnd[0] + ' ' + cls[0]
+        return arg
 
     def help_help(self):
         """ Prints help command description """
