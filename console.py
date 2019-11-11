@@ -19,6 +19,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def precmd(self, arg):
+        """parses command input"""
         if '.' in arg and '(' in arg and ')' in arg:
             cls = arg.split('.')
             comnd = cls[1].split('(')
@@ -29,6 +30,16 @@ class HBNBCommand(cmd.Cmd):
     def help_help(self):
         """ Prints help command description """
         print("Provides description of a given command")
+
+    def do_count(self, cls_name):
+        """counts number of instances of a class"""
+        count = 0
+        all_objs = storage.all()
+        for k, v in all_objs.items():
+            clss = k.split('.')
+            if clss[0] == cls_name:
+                count = count + 1
+        print(count)
 
     def do_create(self, type_model):
         """ Creates an instance according to a given class """
