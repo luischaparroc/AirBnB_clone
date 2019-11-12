@@ -5,7 +5,9 @@ from unittest.mock import patch
 from unittest import TestCase
 from io import StringIO
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 from models import storage
+import os
 
 
 class FileStorageTests(unittest.TestCase):
@@ -53,3 +55,15 @@ class FileStorageTests(unittest.TestCase):
         self.assertEqual(create1, create2)
         self.assertNotEqual(update1, update2)
         self.assertEqual(bm_dict['my_name'], "Second name")
+
+    def testHasAttributes(self):
+        """verify if attributes exist"""
+        self.assertEqual(hasattr(FileStorage, '_FileStorage__file_path'), True)
+        self.assertEqual(hasattr(FileStorage, '_FileStorage__objects'), True)
+
+    def testsave(self):
+        """verify if JSON exists"""
+        my_model = BaseModel()
+        my_model.save()
+        self.assertEqual(os.path.exists(storage._FileStorage__file_path), True)
+        self.assertEqual(storage.all(), storage._FileStorage__objects)
