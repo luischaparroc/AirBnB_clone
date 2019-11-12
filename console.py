@@ -9,8 +9,6 @@ from models.city import City
 from models.amenity import Amenity
 from models.state import State
 from models.review import Review
-from models import l_classes
-from models import l_cmds
 import json
 
 
@@ -18,15 +16,19 @@ class HBNBCommand(cmd.Cmd):
     """Command processor"""
 
     prompt = "(hbnb) "
+    l_classes = ['BaseModel', 'User', 'Amenity',
+                 'Place', 'City', 'State', 'Review']
+
+    l_c = ['create', 'show', 'update', 'all', 'destroy', 'count']
 
     def precmd(self, arg):
         """parses command input"""
         if '.' in arg and '(' in arg and ')' in arg:
             cls = arg.split('.')
-            comnd = cls[1].split('(')
+            cnd = cls[1].split('(')
             args = comnd[1].split(')')
-            if cls[0] in l_classes and comnd[0] in l_cmds:
-                arg = comnd[0] + ' ' + cls[0] + ' ' + args[0]
+            if cls[0] in HBNBCommand.l_classes and cnd[0] in HBNBCommand.l_c:
+                arg = cnd[0] + ' ' + cls[0] + ' ' + args[0]
         return arg
 
     def help_help(self):
@@ -48,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
 
         if not type_model:
             print("** class name missing **")
-        elif type_model not in l_classes:
+        elif type_model not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         else:
             dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
@@ -67,7 +69,7 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split(' ')
 
-        if args[0] not in l_classes:
+        if args[0] not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -90,7 +92,7 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split(' ')
 
-        if args[0] not in l_classes:
+        if args[0] not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -115,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split(' ')
 
-        if args[0] not in l_classes:
+        if args[0] not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         else:
             all_objs = storage.all()
@@ -141,7 +143,7 @@ class HBNBCommand(cmd.Cmd):
 
         print(args)
 
-        if args[0] not in l_classes:
+        if args[0] not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
