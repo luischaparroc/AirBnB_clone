@@ -101,3 +101,17 @@ class FileStorageTests(unittest.TestCase):
                 storage.new(BaseModel(**value))
         for key, value in storage.all().items():
             self.assertEqual(dobj[key].to_dict(), value.to_dict())
+
+    def testFileStorage1(self):
+        """ Test attributes value of a FileStorage instance """
+        f_storage = FileStorage()
+
+        my_model = BaseModel()
+        my_model.name = "Holberton"
+        my_model.my_number = 89
+        my_model.save()
+        my_model_json = my_model.to_dict()
+        f_storage.reload()
+        dobj = f_storage.all()
+        key = my_model_json['__class__'] + '.' + my_model_json['id']
+        self.assertTrue(key in dobj)
