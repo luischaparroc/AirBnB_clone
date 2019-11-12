@@ -8,6 +8,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
 import os
+import json
 
 
 class FileStorageTests(unittest.TestCase):
@@ -83,5 +84,20 @@ class FileStorageTests(unittest.TestCase):
         FileStorage._FileStorage__objects = {}
         self.assertNotEqual(dobj, FileStorage._FileStorage__objects)
         storage.reload()
+        for key, value in storage.all().items():
+            self.assertEqual(dobj[key].to_dict(), value.to_dict())
+
+    def testnew(self):
+        """test if new is working"""
+        self.assertFalse(os.path.exists(storage._FileStorage__file_path))
+        my_model = BaseModel()
+        my_model.save()
+        self.assertEqual(os.path.exists(storage._FileStorage__file_path), True)
+        dobj = storage.all()
+        FileStorage._FileStorage__objects = {}
+        self.assertNotEqual(dobj, FileStorage._FileStorage__objects)
+        with open(FileStorage._FileStorage__file_path, 'r') as f:
+            for key, value in json.load(f).items():
+                storage.new(BaseModel(**value))
         for key, value in storage.all().items():
             self.assertEqual(dobj[key].to_dict(), value.to_dict())
