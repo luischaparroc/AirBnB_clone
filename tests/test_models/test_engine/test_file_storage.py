@@ -106,8 +106,7 @@ class FileStorageTests(unittest.TestCase):
         """ Check save self """
         self.assertFalse(os.path.exists(storage._FileStorage__file_path))
 
-        f_storage = FileStorage()
         msg = "save() takes 1 positional argument but 2 were given"
         with self.assertRaises(TypeError) as e:
-            f_storage.save(self)
+            FileStorage.save(self, 100)
         self.assertEqual(str(e.exception), msg)
