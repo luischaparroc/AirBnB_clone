@@ -14,7 +14,7 @@ import json
 class FileStorageTests(unittest.TestCase):
     """ Suite of File Storage Tests """
 
-    def setUp(self):
+    def tearDown(self):
         """Method invoked for each test"""
         if os.path.exists(storage._FileStorage__file_path) is True:
             os.remove(storage._FileStorage__file_path)
@@ -102,23 +102,12 @@ class FileStorageTests(unittest.TestCase):
         for key, value in storage.all().items():
             self.assertEqual(dobj[key].to_dict(), value.to_dict())
 
-    def testFileStorage1(self):
-        """ Test attributes value of a FileStorage instance """
+    def testSaveSelf(self):
+        """ Check save self """
+        self.assertFalse(os.path.exists(storage._FileStorage__file_path))
+
         f_storage = FileStorage()
-
-        my_model = BaseModel()
-        my_model.name = "Holberton"
-        my_model.my_number = 89
-        my_model.save()
-        my_model_json = my_model.to_dict()
-        f_storage.reload()
-        dobj = f_storage.all()
-        key = my_model_json['__class__'] + '.' + my_model_json['id']
-        self.assertTrue(key in dobj)
-
-    def testfileStorage2(self):
-        """ Test attributes value of a BaseModel instance """
-        msg = "object() takes no parameters"
+        msg = "save() takes 1 positional argument but 2 were given"
         with self.assertRaises(TypeError) as e:
-            f_storage = FileStorage(0, 1, 2, 3, 4, 5)
+            f_storage.save(self)
         self.assertEqual(str(e.exception), msg)

@@ -5,10 +5,17 @@ from unittest.mock import patch
 from unittest import TestCase
 from io import StringIO
 from models.base_model import BaseModel
+import os
+from models import storage
 
 
 class BaseModelTests(unittest.TestCase):
     """ Suite of Console Tests """
+
+    def tearDown(self):
+        """Method invoked for each test"""
+        if os.path.exists(storage._FileStorage__file_path) is True:
+            os.remove(storage._FileStorage__file_path)
 
     def testBaseModel1(self):
         """ Test attributes value of a BaseModel instance """
@@ -38,3 +45,11 @@ class BaseModelTests(unittest.TestCase):
 
         self.assertEqual(first_dict['created_at'], sec_dict['created_at'])
         self.assertNotEqual(first_dict['updated_at'], sec_dict['updated_at'])
+
+    def testSaveSelf(self):
+        """ Check save self """
+        my_model = BaseModel()
+        msg = "save() takes 1 positional argument but 2 were given"
+        with self.assertRaises(TypeError) as e:
+            my_model.save(self)
+        self.assertEqual(str(e.exception), msg)
