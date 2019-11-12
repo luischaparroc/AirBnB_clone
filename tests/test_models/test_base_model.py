@@ -48,8 +48,8 @@ class BaseModelTests(unittest.TestCase):
 
     def testSaveSelf(self):
         """ Check save self """
-        my_model = BaseModel()
         msg = "save() takes 1 positional argument but 2 were given"
         with self.assertRaises(TypeError) as e:
-            my_model.save(self)
+            BaseModel.save(self, 28)
+
         self.assertEqual(str(e.exception), msg)
