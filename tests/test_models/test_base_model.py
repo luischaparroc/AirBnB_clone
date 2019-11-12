@@ -51,4 +51,5 @@ class BaseModelTests(unittest.TestCase):
         msg = "save() takes 1 positional argument but 2 were given"
         with self.assertRaises(TypeError) as e:
             BaseModel.save(self, 28)
+
         self.assertEqual(str(e.exception), msg)
