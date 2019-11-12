@@ -115,3 +115,10 @@ class FileStorageTests(unittest.TestCase):
         dobj = f_storage.all()
         key = my_model_json['__class__'] + '.' + my_model_json['id']
         self.assertTrue(key in dobj)
+
+    def testfileStorage2(self):
+        """ Test attributes value of a BaseModel instance """
+        msg = "object() takes no parameters"
+        with self.assertRaises(TypeError) as e:
+            f_storage = FileStorage(0, 1, 2, 3, 4, 5)
+        self.assertEqual(str(e.exception), msg)
