@@ -14,7 +14,7 @@ import json
 class FileStorageTests(unittest.TestCase):
     """ Suite of File Storage Tests """
 
-    def setUp(self):
+    def tearDown(self):
         """Method invoked for each test"""
         if os.path.exists(storage._FileStorage__file_path) is True:
             os.remove(storage._FileStorage__file_path)
@@ -101,3 +101,13 @@ class FileStorageTests(unittest.TestCase):
                 storage.new(BaseModel(**value))
         for key, value in storage.all().items():
             self.assertEqual(dobj[key].to_dict(), value.to_dict())
+
+    def testSaveSelf(self):
+        """ Check save self """
+        self.assertFalse(os.path.exists(storage._FileStorage__file_path))
+
+        f_storage = FileStorage()
+        msg = "save() takes 1 positional argument but 2 were given"
+        with self.assertRaises(TypeError) as e:
+            f_storage.save(self)
+        self.assertEqual(str(e.exception), msg)
