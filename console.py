@@ -10,6 +10,8 @@ from models.amenity import Amenity
 from models.state import State
 from models.review import Review
 from models import l_classes
+from models import l_cmds
+import json
 
 
 class HBNBCommand(cmd.Cmd):
@@ -17,9 +19,29 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
+    def precmd(self, arg):
+        """parses command input"""
+        if '.' in arg and '(' in arg and ')' in arg:
+            cls = arg.split('.')
+            comnd = cls[1].split('(')
+            args = comnd[1].split(')')
+            if cls[0] in l_classes and comnd[0] in l_cmds:
+                arg = comnd[0] + ' ' + cls[0] + ' ' + args[0]
+        return arg
+
     def help_help(self):
         """ Prints help command description """
         print("Provides description of a given command")
+
+    def do_count(self, cls_name):
+        """counts number of instances of a class"""
+        count = 0
+        all_objs = storage.all()
+        for k, v in all_objs.items():
+            clss = k.split('.')
+            if clss[0] == cls_name:
+                count = count + 1
+        print(count)
 
     def do_create(self, type_model):
         """ Creates an instance according to a given class """
@@ -54,7 +76,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in all_objs.items():
                 ob_name = value.__class__.__name__
                 ob_id = value.id
-                if ob_name == args[0] and ob_id == args[1]:
+                if ob_name == args[0] and ob_id == args[1].strip('"'):
                     print(value)
                     return
             print("** no instance found **")
@@ -77,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in all_objs.items():
                 ob_name = value.__class__.__name__
                 ob_id = value.id
-                if ob_name == args[0] and ob_id == args[1]:
+                if ob_name == args[0] and ob_id == args[1].strip('"'):
                     del value
                     del storage._FileStorage__objects[key]
                     storage.save()
@@ -111,7 +133,13 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        args = arg.split(' ')
+        a = ""
+        for argv in arg.split(','):
+            a = a + argv
+
+        args = a.split(' ')
+
+        print(args)
 
         if args[0] not in l_classes:
             print("** class doesn't exist **")
@@ -122,7 +150,7 @@ class HBNBCommand(cmd.Cmd):
             for key, objc in all_objs.items():
                 ob_name = objc.__class__.__name__
                 ob_id = objc.id
-                if ob_name == args[0] and ob_id == args[1]:
+                if ob_name == args[0] and ob_id == args[1].strip('"'):
                     if len(args) == 2:
                         print("** attribute name missing **")
                     elif len(args) == 3:

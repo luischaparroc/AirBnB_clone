@@ -7,3 +7,5 @@ storage.reload()
 
 l_classes = ['BaseModel', 'User', 'Amenity',
              'Place', 'City', 'State', 'Review']
+
+l_cmds = ['create', 'show', 'update', 'all', 'destroy', 'count']
