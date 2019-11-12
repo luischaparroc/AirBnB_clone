@@ -35,6 +35,10 @@ class HBNBCommand(cmd.Cmd):
         """ Prints help command description """
         print("Provides description of a given command")
 
+    def emptyline(self):
+        """do nothing when empty line"""
+        pass
+
     def do_count(self, cls_name):
         """counts number of instances of a class"""
         count = 0
