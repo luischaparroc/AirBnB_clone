@@ -23,3 +23,10 @@ class test_user(unittest.TestCase):
     def test_user_inheritance(self):
         """test if User is a subclass of BaseModel"""
         self.assertEqual(issubclass(User, BaseModel), True)
+
+    def testHasAttributes(self):
+        """verify if attributes exist"""
+        self.assertEqual(hasattr(User, 'email'), True)
+        self.assertEqual(hasattr(User, 'password'), True)
+        self.assertEqual(hasattr(User, 'first_name'), True)
+        self.assertEqual(hasattr(User, 'last_name'), True)
