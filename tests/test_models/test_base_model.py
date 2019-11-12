@@ -23,3 +23,18 @@ class BaseModelTests(unittest.TestCase):
         self.assertEqual(my_model.my_number, my_model_json['my_number'])
         self.assertEqual('BaseModel', my_model_json['__class__'])
         self.assertEqual(my_model.id, my_model_json['id'])
+
+    def testSave(self):
+        """ Checks if save method updates the public instance instance
+        attribute updated_at """
+        my_model = BaseModel()
+        my_model.first_name = "First"
+        my_model.save()
+        first_dict = my_model.to_dict()
+
+        my_model.first_name = "Second"
+        my_model.save()
+        sec_dict = my_model.to_dict()
+
+        self.assertEqual(first_dict['created_at'], sec_dict['created_at'])
+        self.assertNotEqual(first_dict['updated_at'], sec_dict['updated_at'])
