@@ -13,6 +13,11 @@ import os
 class FileStorageTests(unittest.TestCase):
     """ Suite of File Storage Tests """
 
+    def setUp(self):
+        """Method invoked for each test"""
+        if os.path.exists(storage._FileStorage__file_path) is True:
+            os.remove(storage._FileStorage__file_path)
+
     def testStoreBaseModel(self):
         """ Test save and reload functions """
         my_model = BaseModel()
@@ -67,3 +72,16 @@ class FileStorageTests(unittest.TestCase):
         my_model.save()
         self.assertEqual(os.path.exists(storage._FileStorage__file_path), True)
         self.assertEqual(storage.all(), storage._FileStorage__objects)
+
+    def testreload(self):
+        """test if reload """
+        self.assertFalse(os.path.exists(storage._FileStorage__file_path))
+        my_model = BaseModel()
+        my_model.save()
+        self.assertEqual(os.path.exists(storage._FileStorage__file_path), True)
+        dobj = storage.all()
+        FileStorage._FileStorage__objects = {}
+        self.assertNotEqual(dobj, FileStorage._FileStorage__objects)
+        storage.reload()
+        for key, value in storage.all().items():
+            self.assertEqual(dobj[key].to_dict(), value.to_dict())
