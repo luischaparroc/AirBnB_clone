@@ -13,37 +13,37 @@ import datetime
 class UserCase(unittest.TestCase):
     """Tests instances and methods from user class"""
 
+    u = User()
+
     def test_class_exists(self):
         """tests if class exists"""
-        u = User()
-        self.assertEqual(str(type(u)), "<class 'models.user.User'>")
+        self.assertEqual(str(type(self.u)), "<class 'models.user.User'>")
 
     def test_user_inheritance(self):
         """test if User is a subclass of BaseModel"""
-        u = User()
-        self.assertEqual(isinstance(u, BaseModel), True)
+        self.assertEqual(isinstance(self.u, BaseModel), True)
+        self.assertEqual(isinstance(self.u, User), True)
 
     def testHasAttributes(self):
         """verify if attributes exist"""
         u = User()
-        self.assertEqual(hasattr(u, 'email'), True)
-        self.assertEqual(hasattr(u, 'password'), True)
-        self.assertEqual(hasattr(u, 'first_name'), True)
-        self.assertEqual(hasattr(u, 'last_name'), True)
-        self.assertEqual(hasattr(u, 'id'), True)
-        self.assertEqual(hasattr(u, 'created_at'), True)
-        self.assertEqual(hasattr(u, 'updated_at'), True)
+        self.assertEqual(hasattr(self.u, 'email'), True)
+        self.assertEqual(hasattr(self.u, 'password'), True)
+        self.assertEqual(hasattr(self.u, 'first_name'), True)
+        self.assertEqual(hasattr(self.u, 'last_name'), True)
+        self.assertEqual(hasattr(self.u, 'id'), True)
+        self.assertEqual(hasattr(self.u, 'created_at'), True)
+        self.assertEqual(hasattr(self.u, 'updated_at'), True)
 
     def test_types(self):
         """tests if the type of the attribute is the correct one"""
-        usr = User()
-        self.assertTrue(type(usr.first_name), str)
-        self.assertTrue(type(usr.last_name), str)
-        self.assertTrue(type(usr.email), str)
-        self.assertTrue(type(usr.password), str)
-        self.assertTrue(type(usr.id), str)
-        self.assertTrue(type(usr.created_at), datetime.datetime)
-        self.assertTrue(type(usr.updated_at), datetime.datetime)
+        self.assertTrue(type(self.u.first_name), str)
+        self.assertTrue(type(self.u.last_name), str)
+        self.assertTrue(type(self.u.email), str)
+        self.assertTrue(type(self.u.password), str)
+        self.assertTrue(type(self.u.id), str)
+        self.assertTrue(type(self.u.created_at), datetime.datetime)
+        self.assertTrue(type(self.u.updated_at), datetime.datetime)
 
 if __name__ == '__main__':
     unittest.main()
