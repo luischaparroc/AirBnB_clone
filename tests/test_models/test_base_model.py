@@ -4,6 +4,7 @@ import unittest
 from models.base_model import BaseModel
 import os
 from models import storage
+from models.engine.file_storage import FileStorage
 
 
 class BaseModelTests(unittest.TestCase):
@@ -42,6 +43,10 @@ class BaseModelTests(unittest.TestCase):
 
         self.assertEqual(first_dict['created_at'], sec_dict['created_at'])
         self.assertNotEqual(first_dict['updated_at'], sec_dict['updated_at'])
+
+    def test_inst_storage(self):
+        """test if storage is an instance of FileStorage"""
+        self.assertEqual(isinstance(storage, FileStorage), True)
 
 if __name__ == '__main__':
     unittest.main()
