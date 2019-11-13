@@ -10,6 +10,7 @@ from models.amenity import Amenity
 from models.state import State
 from models.review import Review
 import json
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -143,7 +144,7 @@ class HBNBCommand(cmd.Cmd):
         for argv in arg.split(','):
             a = a + argv
 
-        args = a.split(' ')
+        args = shlex.split(a)
 
         if args[0] not in HBNBCommand.l_classes:
             print("** class doesn't exist **")
