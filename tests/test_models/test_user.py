@@ -9,7 +9,7 @@ import os
 from models import storage
 
 
-class test_user(unittest.TestCase):
+class UserCase(unittest.TestCase):
     """Tests instances and methods from user class"""
 
     def tearDown(self):
@@ -19,18 +19,24 @@ class test_user(unittest.TestCase):
 
     def test_class_exists(self):
         """tests if class exists"""
-        self.assertEqual(str(type(User())), "<class 'models.user.User'>")
+        u = User()
+        self.assertEqual(str(type(u)), "<class 'models.user.User'>")
 
     def test_user_inheritance(self):
         """test if User is a subclass of BaseModel"""
-        self.assertEqual(issubclass(User, BaseModel), True)
+        u = User()
+        self.assertEqual(isinstance(u, BaseModel), True)
 
     def testHasAttributes(self):
         """verify if attributes exist"""
-        self.assertEqual(hasattr(User, 'email'), True)
-        self.assertEqual(hasattr(User, 'password'), True)
-        self.assertEqual(hasattr(User, 'first_name'), True)
-        self.assertEqual(hasattr(User, 'last_name'), True)
+        u = User()
+        self.assertEqual(hasattr(u, 'email'), True)
+        self.assertEqual(hasattr(u, 'password'), True)
+        self.assertEqual(hasattr(u, 'first_name'), True)
+        self.assertEqual(hasattr(u, 'last_name'), True)
+        self.assertEqual(hasattr(u, 'id'), True)
+        self.assertEqual(hasattr(u, 'created_at'), True)
+        self.assertEqual(hasattr(u, 'updated_at'), True)
 
     def testUser(self):
         """ Test attributes value of a BaseModel instance """
