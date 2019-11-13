@@ -115,5 +115,9 @@ python3 (3.4.3)
 ### Version :pushpin:
 HBnB - version 9.6
 
-###Acknowledgements :raised_hands:
+### Acknowledgements :raised_hands:
 To all the peers that contribuited with their knowledge
+
+### Authors :fountain_pen:
+* Luis Chaparro - @luischaparroc
+* Laura Peralta V - @LauraPeraltaV85
