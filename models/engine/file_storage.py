@@ -26,10 +26,7 @@ class FileStorage:
         dictionary = {}
 
         for key, value in FileStorage.__objects.items():
-            if not value:
-                pass
-            else:
-                dictionary[key] = value.to_dict()
+            dictionary[key] = value.to_dict()
 
         with open(FileStorage.__file_path, 'w') as f:
             json.dump(dictionary, f)
