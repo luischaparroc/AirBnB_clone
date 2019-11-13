@@ -1,5 +1,5 @@
 # AirBnB Clone
-![HBNB Logo](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20191112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191112T140141Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=41b7ca56db9cdde865d94675ed0b6dfc7891881988bd2c22b1c1cbfbd20f0fe7)
+![HBnB Logo](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20191113%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191113T134424Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f2bb59e444e8eb1503452ad0c061d7221e20cd09faad93bd816d5991b3dd2342)
 
 ### Contents
 
@@ -23,7 +23,7 @@ The console was developed in Ubuntu 14.04LTS using python3 (version 3.4.3).
 ### Further information :bookmark_tabs:
 For further information on python version, and documentation visit [python.org](https://www.python.org/).
 
-## Requirements :memo: :pencil:
+## Requirements :memo:
 Knowledge in python3, how to use a command line interpreter, a computer with Ubuntu 14.04, python3 and pep8 style corrector.
 
 ## Repo Contents :clipboard:
@@ -59,6 +59,17 @@ $ git clone https://github.com/------/AirBnB_clone.git
 ```
 
 ## Usage :wrench:
+
+|   **Method**   |   **Description**   |
+| -------------- | --------------------- |
+|[create](./console.py) | Creates object of given class |
+|[show](./console.py) | Prints the string representation of an instance based on the class name and id |
+|[all](./console.py) | Prints all string representation of all instances based or not on the class name |
+|[update](./console.py) | Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file) |
+|[destroy](./console.py)| Deletes an instance based on the class name and id (save the change into the JSON file) |
+|[count](./console.py)| Retrieve the number of instances of a class |
+|[help](./console.py)| Prints information about specific command |
+|[quit/ EOF](./console.py)| Exit the program |
 
 ###### Example No.1
 
@@ -114,3 +125,10 @@ python3 (3.4.3)
 
 ### Version :pushpin:
 HBnB - version 9.6
+
+### Acknowledgements :raised_hands:
+To all the peers that contribuited with their knowledge
+
+### Authors :fountain_pen:
+* Luis Chaparro - @luischaparroc
+* Laura Peralta V - @LauraPeraltaV85
