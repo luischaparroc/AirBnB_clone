@@ -20,7 +20,7 @@ class test_state(unittest.TestCase):
 
     def test_user_inheritance(self):
         """test if State is a subclass of BaseModel"""
-        self.assertEqual(issubclass(Amenity, BaseModel), True)
+        self.assertEqual(issubclass(State, BaseModel), True)
 
     def testHasAttributes(self):
         """verify if attributes exist"""

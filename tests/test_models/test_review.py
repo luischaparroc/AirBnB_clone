@@ -26,6 +26,6 @@ class test_review(unittest.TestCase):
 
     def testHasAttributes(self):
         """verify if attributes exist"""
-        self.assertEqual(hasattr(Review, 'place.id'), True)
+        self.assertEqual(hasattr(Review, 'place_id'), True)
         self.assertEqual(hasattr(Review, 'user_id'), True)
         self.assertEqual(hasattr(Review, 'text'), True)
