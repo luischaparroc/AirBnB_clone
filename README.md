@@ -23,13 +23,10 @@ The console was developed in Ubuntu 14.04LTS using python3 (version 3.4.3).
 ### Further information :bookmark_tabs:
 For further information on python version, and documentation visit [python.org](https://www.python.org/).
 
-## Requirements 📋
+## Requirements :memo: :pencil:
 Knowledge in python3, how to use a command line interpreter, a computer with Ubuntu 14.04, python3 and pep8 style corrector.
 
-## Built with
-python3 (3.4.3)
-
-## Repo Contents
+## Repo Contents :clipboard:
 This repository constains the following files:
 
 |   **File**   |   **Description**   |
@@ -55,13 +52,13 @@ This repository constains the following files:
 |[test_console.py](./tests/test_console.py) | unittests for console |
 
 
-## Installation
+## Installation :hammer_and_wrench:
 Clone the repository and run the console.py
 ```
 $ git clone https://github.com/------/AirBnB_clone.git
 ```
 
-## Usage
+## Usage :wrench:
 
 ###### Example No.1
 
@@ -111,3 +108,9 @@ e6ee5344-04ef-454d-84e4-ba6fc613f1b4
 ➜  AirBnB_clone git:(feature) ✗
 
 ```
+
+## Built with :gear:
+python3 (3.4.3)
+
+### Version :pushpin:
+HBnB - version 9.6
