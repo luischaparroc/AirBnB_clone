@@ -1,5 +1,5 @@
 # AirBnB Clone
-![HBnB Logo](https://www.photobox.co.uk/my/photo/full?photo_id=502340566658)
+![HBnB Logo](./image/hbnb_logo.png)
 
 
 ### Contents
