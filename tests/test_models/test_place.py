@@ -3,44 +3,56 @@
 Unittest for amenity.py
 """
 import unittest
-from models.base_model import BaseModel
 from models.place import Place
+import datetime
 
 
-class test_place(unittest.TestCase):
+class TestPlace(unittest.TestCase):
     """Tests instances and methods from amenity class"""
-    def setUp(self):
-        """sets variable everytime"""
-        Place.name = ""
-        Place.city_id = ""
-        Place.user_id = ""
-        Place.description = ""
-        Place.number_rooms = 0
-        Place.number_bathrooms = 0
-        Place.max_guest = 0
-        Place.price_by_night = 0
-        Place.latitude = 0.0
-        Place.longitude = 0.0
-        Place.amenity_ids = []
+
+    p = Place()
 
     def test_class_exists(self):
         """tests if class exists"""
-        self.assertEqual(str(type(Place())), "<class 'models.place.Place'>")
+        self.assertEqual(str(type(self.p)), "<class 'models.place.Place'>")
 
     def test_user_inheritance(self):
         """test if Place is a subclass of BaseModel"""
-        self.assertEqual(issubclass(Place, BaseModel), True)
+        self.assertIsInstance(self.p, Place)
 
     def testHasAttributes(self):
         """verify if attributes exist"""
-        self.assertEqual(hasattr(Place, 'city_id'), True)
-        self.assertEqual(hasattr(Place, 'user_id'), True)
-        self.assertEqual(hasattr(Place, 'name'), True)
-        self.assertEqual(hasattr(Place, 'description'), True)
-        self.assertEqual(hasattr(Place, 'number_rooms'), True)
-        self.assertEqual(hasattr(Place, 'number_bathrooms'), True)
-        self.assertEqual(hasattr(Place, 'max_guest'), True)
-        self.assertEqual(hasattr(Place, 'price_by_night'), True)
-        self.assertEqual(hasattr(Place, 'latitude'), True)
-        self.assertEqual(hasattr(Place, 'longitude'), True)
-        self.assertEqual(hasattr(Place, 'amenity_ids'), True)
+        self.assertTrue(hasattr(self.p, 'city_id'))
+        self.assertTrue(hasattr(self.p, 'user_id'))
+        self.assertTrue(hasattr(self.p, 'name'))
+        self.assertTrue(hasattr(self.p, 'description'))
+        self.assertTrue(hasattr(self.p, 'number_rooms'))
+        self.assertTrue(hasattr(self.p, 'number_bathrooms'))
+        self.assertTrue(hasattr(self.p, 'max_guest'))
+        self.assertTrue(hasattr(self.p, 'price_by_night'))
+        self.assertTrue(hasattr(self.p, 'latitude'))
+        self.assertTrue(hasattr(self.p, 'longitude'))
+        self.assertTrue(hasattr(self.p, 'amenity_ids'))
+        self.assertTrue(hasattr(self.p, 'id'))
+        self.assertTrue(hasattr(self.p, 'created_at'))
+        self.assertTrue(hasattr(self.p, 'updated_at'))
+
+    def test_types(self):
+        """tests if the type of the attribute is the correct one"""
+        self.assertIsInstance(self.p.city_id, str)
+        self.assertIsInstance(self.p.user_id, str)
+        self.assertIsInstance(self.p.name, str)
+        self.assertIsInstance(self.p.description, str)
+        self.assertIsInstance(self.p.number_rooms, int)
+        self.assertIsInstance(self.p.number_bathrooms, int)
+        self.assertIsInstance(self.p.max_guest, int)
+        self.assertIsInstance(self.p.price_by_night, int)
+        self.assertIsInstance(self.p.latitude, float)
+        self.assertIsInstance(self.p.longitude, float)
+        self.assertIsInstance(self.p.amenity_ids, list)
+        self.assertIsInstance(self.p.id, str)
+        self.assertIsInstance(self.p.created_at, datetime.datetime)
+        self.assertIsInstance(self.p.updated_at, datetime.datetime)
+
+if __name__ == '__main__':
+    unittest.main()
