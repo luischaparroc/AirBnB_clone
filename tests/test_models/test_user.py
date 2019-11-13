@@ -44,3 +44,6 @@ class UserCase(unittest.TestCase):
         self.assertTrue(type(usr.id), str)
         self.assertTrue(type(usr.created_at), datetime.datetime)
         self.assertTrue(type(usr.updated_at), datetime.datetime)
+
+if __name__ == '__main__':
+    unittest.main()
