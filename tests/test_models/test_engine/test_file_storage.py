@@ -14,8 +14,9 @@ import json
 class FileStorageTests(unittest.TestCase):
     """ Suite of File Storage Tests """
 
-    def tearDown(self):
-        """Method invoked for each test"""
+    def setUp(self):
+        """ Method invoked for each test """
+        FileStorage._FileStorage__objects = {}
         if os.path.exists(storage._FileStorage__file_path) is True:
             os.remove(storage._FileStorage__file_path)
 

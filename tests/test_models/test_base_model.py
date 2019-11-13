@@ -45,11 +45,3 @@ class BaseModelTests(unittest.TestCase):
 
         self.assertEqual(first_dict['created_at'], sec_dict['created_at'])
         self.assertNotEqual(first_dict['updated_at'], sec_dict['updated_at'])
-
-    def testSaveSelf(self):
-        """ Check save self """
-        msg = "save() takes 1 positional argument but 2 were given"
-        with self.assertRaises(TypeError) as e:
-            BaseModel.save(self, 28)
-
-        self.assertEqual(str(e.exception), msg)
