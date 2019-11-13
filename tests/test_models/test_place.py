@@ -42,5 +42,5 @@ class test_place(unittest.TestCase):
         self.assertEqual(hasattr(Place, 'max_guest'), True)
         self.assertEqual(hasattr(Place, 'price_by_night'), True)
         self.assertEqual(hasattr(Place, 'latitude'), True)
-        self.assertEqual(hasattr(Place, 'logitude'), True)
+        self.assertEqual(hasattr(Place, 'longitude'), True)
         self.assertEqual(hasattr(Place, 'amenity_ids'), True)
