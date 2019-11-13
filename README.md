@@ -1,5 +1,5 @@
 # AirBnB Clone
-![HBnB Logo](https://images.app.goo.gl/znFvuabo1ZYgSFgE7)
+![HBnB Logo](https://ibb.co/DDYHBLn)
 
 
 ### Contents
