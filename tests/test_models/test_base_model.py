@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 """ Module of Unittests """
 import unittest
-from unittest.mock import patch
-from unittest import TestCase
-from io import StringIO
 from models.base_model import BaseModel
 import os
 from models import storage
@@ -12,7 +9,7 @@ from models import storage
 class BaseModelTests(unittest.TestCase):
     """ Suite of Console Tests """
 
-    def tearDown(self):
+    def setUp(self):
         """Method invoked for each test"""
         if os.path.exists(storage._FileStorage__file_path) is True:
             os.remove(storage._FileStorage__file_path)
@@ -45,3 +42,6 @@ class BaseModelTests(unittest.TestCase):
 
         self.assertEqual(first_dict['created_at'], sec_dict['created_at'])
         self.assertNotEqual(first_dict['updated_at'], sec_dict['updated_at'])
+
+if __name__ == '__main__':
+    unittest.main()
