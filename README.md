@@ -1,5 +1,5 @@
 # AirBnB Clone
-![HBNB Logo](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20191112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191112T140141Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=41b7ca56db9cdde865d94675ed0b6dfc7891881988bd2c22b1c1cbfbd20f0fe7)
+![alt text](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20191112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191112T140141Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=41b7ca56db9cdde865d94675ed0b6dfc7891881988bd2c22b1c1cbfbd20f0fe7 "HBnB Logo")
 
 ### Contents
 
@@ -23,7 +23,7 @@ The console was developed in Ubuntu 14.04LTS using python3 (version 3.4.3).
 ### Further information :bookmark_tabs:
 For further information on python version, and documentation visit [python.org](https://www.python.org/).
 
-## Requirements :memo pencil:
+## Requirements :memo:
 Knowledge in python3, how to use a command line interpreter, a computer with Ubuntu 14.04, python3 and pep8 style corrector.
 
 ## Repo Contents :clipboard:
