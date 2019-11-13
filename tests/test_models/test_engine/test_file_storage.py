@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 """ Module of Unittests """
 import unittest
-from unittest.mock import patch
-from unittest import TestCase
-from io import StringIO
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
