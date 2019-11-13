@@ -111,3 +111,6 @@ class FileStorageTests(unittest.TestCase):
             FileStorage.save(self, 100)
 
         self.assertEqual(str(e.exception), msg)
+
+if __name__ == '__main__':
+    unittest.main()
