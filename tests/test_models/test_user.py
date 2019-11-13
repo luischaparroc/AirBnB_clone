@@ -11,12 +11,6 @@ from models import storage
 
 class test_user(unittest.TestCase):
     """Tests instances and methods from user class"""
-    def setUp(self):
-        """sets variable everytime"""
-        User.email = ""
-        User.password = ""
-        User.first_name = ""
-        User.last_name = ""
 
     def tearDown(self):
         """Method invoked for each test"""
