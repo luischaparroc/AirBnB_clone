@@ -1,5 +1,6 @@
 # AirBnB Clone
-![HBnB Logo](https://camo.githubusercontent.com/a0c52a69dc410e983b8c63fa4aa57e83cb4157cd/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f696e7472616e65742d70726f6a656374732d66696c65732f686f6c626572746f6e7363686f6f6c2d6869676865722d6c6576656c5f70726f6772616d6d696e672b2f3236332f4842544e2d68626e622d46696e616c2e706e67)
+![HBnB Logo](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUXW7JF5MT%2F20191113%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191113T134424Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f2bb59e444e8eb1503452ad0c061d7221e20cd09faad93bd816d5991b3dd2342)
+
 
 ### Contents
 
@@ -59,6 +60,17 @@ $ git clone https://github.com/------/AirBnB_clone.git
 ```
 
 ## Usage :wrench:
+
+|   **Method**   |   **Description**   |
+| -------------- | --------------------- |
+|[create](./console.py) | Creates object of given class |
+|[show](./console.py) | Prints the string representation of an instance based on the class name and id |
+|[all](./console.py) | Prints all string representation of all instances based or not on the class name |
+|[update](./console.py) | Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file) |
+|[destroy](./console.py)| Deletes an instance based on the class name and id (save the change into the JSON file) |
+|[count](./console.py)| Retrieve the number of instances of a class |
+|[help](./console.py)| Prints information about specific command |
+|[quit/ EOF](./console.py)| Exit the program |
 
 ###### Example No.1
 
