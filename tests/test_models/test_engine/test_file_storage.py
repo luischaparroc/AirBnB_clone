@@ -6,7 +6,6 @@ from models.engine.file_storage import FileStorage
 from models import storage
 import os
 import json
-import datetime
 
 
 class FileStorageTests(unittest.TestCase):
@@ -114,27 +113,6 @@ class FileStorageTests(unittest.TestCase):
             FileStorage.save(self, 100)
 
         self.assertEqual(str(e.exception), msg)
-
-    def testHasAttributes(self):
-        """ Test Attributes """
-        my_model = BaseModel()
-
-        self.assertTrue(hasattr(my_model, 'id'))
-        self.assertTrue(hasattr(my_model, 'created_at'))
-        self.assertTrue(hasattr(my_model, 'updated_at'))
-
-    def testType(self):
-        """ Check type objects """
-        my_model = BaseModel()
-
-        my_model.save()
-
-        self.assertIsInstance(my_model.id, str)
-        self.assertIsInstance(my_model.created_at, datetime.datetime)
-        self.assertIsInstance(my_model.updated_at, datetime.datetime)
-
-        dict_model = my_model.to_dict()
-        self.assertIsInstance(dict_model, dict)
 
 if __name__ == '__main__':
     unittest.main()
