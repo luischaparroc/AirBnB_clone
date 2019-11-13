@@ -13,11 +13,6 @@ import datetime
 class UserCase(unittest.TestCase):
     """Tests instances and methods from user class"""
 
-    def tearDown(self):
-        """Method invoked for each test"""
-        if os.path.exists(storage._FileStorage__file_path) is True:
-            os.remove(storage._FileStorage__file_path)
-
     def test_class_exists(self):
         """tests if class exists"""
         u = User()
@@ -42,6 +37,10 @@ class UserCase(unittest.TestCase):
     def test_types(self):
         """tests if the type of the attribute is the correct one"""
         usr = User()
+        self.assertTrue(type(usr.first_name), str)
+        self.assertTrue(type(usr.last_name), str)
+        self.assertTrue(type(usr.email), str)
+        self.assertTrue(type(usr.password), str)
         self.assertTrue(type(usr.id), str)
         self.assertTrue(type(usr.created_at), datetime.datetime)
         self.assertTrue(type(usr.updated_at), datetime.datetime)
