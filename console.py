@@ -26,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         if '.' in arg and '(' in arg and ')' in arg:
             cls = arg.split('.')
             cnd = cls[1].split('(')
-            args = comnd[1].split(')')
+            args = cnd[1].split(')')
             if cls[0] in HBNBCommand.l_classes and cnd[0] in HBNBCommand.l_c:
                 arg = cnd[0] + ' ' + cls[0] + ' ' + args[0]
         return arg
