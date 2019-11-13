@@ -11,7 +11,3 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-
-    def __init__(self, *args, **kwargs):
-        """Initializes attributes for User"""
-        super().__init__(**kwargs)
