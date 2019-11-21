@@ -9,7 +9,7 @@
     justify-content: flex-end;
 }
 
-.filters button{
+.filters button {
     font-size: 18px;
     background-color: #FF5A5F;
     color: #FFFFFF;
@@ -21,6 +21,6 @@
     outline: none;
 }
 
-.filters button:active{
+.filters button:active {
     opacity: 90%;
 }
