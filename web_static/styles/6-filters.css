@@ -44,9 +44,7 @@
     margin: 0 0 2px 20px;
 }
 
-.locations p, .amenities p {
-    font-weight: 400;
-    font-size: 14px;
+.locations h4, .amenities h4 {
     margin: 2px 0 0 20px;
 }
 
@@ -60,6 +58,7 @@ ul.popover {
     display: none;
     margin-top: 70px;
     position: absolute;
+    z-index: 1;
 }
 
 ul {
