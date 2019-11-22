@@ -1,6 +1,7 @@
 .filters {
     background: white;
-    height: 70px;
+    --filter-height: 70px;
+    height: var(--filter-height);
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
@@ -48,4 +49,25 @@
     font-weight: 400;
     font-size: 14px;
     margin: 2px 0 0 20px;
+}
+
+ul.popover {
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    top:0;
+    display: none;
+    margin-top: var(--filter-height);
+    position: absolute;
+}
+
+ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.filters div:hover ul.popover {
+    display: block;
 }
