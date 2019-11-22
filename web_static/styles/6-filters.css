@@ -1,7 +1,6 @@
 .filters {
     background: white;
-    --filter-height: 70px;
-    height: var(--filter-height);
+    height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
@@ -45,7 +44,7 @@
     margin: 0 0 2px 20px;
 }
 
-.locations h4, .amenities h4 {
+.locations p, .amenities p {
     font-weight: 400;
     font-size: 14px;
     margin: 2px 0 0 20px;
@@ -59,13 +58,17 @@ ul.popover {
     box-sizing: border-box;
     top:0;
     display: none;
-    margin-top: var(--filter-height);
+    margin-top: 70px;
     position: absolute;
 }
 
 ul {
     list-style: none;
     padding: 10px;
+}
+
+ul.popover ul li h2 {
+    font-size: 16px;
 }
 
 .filters div:hover ul.popover {
