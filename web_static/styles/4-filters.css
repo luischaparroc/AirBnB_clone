@@ -22,6 +22,6 @@
     outline: none;
 }
 
-.filters button:active {
+.filters button:hover {
     opacity: 90%;
 }
